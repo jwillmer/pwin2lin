@@ -10,7 +10,7 @@ sub help {
 print<<HELP
  Export the PuTTY registry settings from Windows:
  Start->Run->regedit
- HKEY_CURRENT_USER\\Software\\9bis.com\\
+ HKEY_CURRENT_USER\\SOFTWARE\\9bis.com\\
  Right click PuTTY and choose 'Export'. Save the registry file to your Linux machine and run this script from a shell (chmod 755 first):
  ./pwin2lin.pl
 
@@ -74,7 +74,7 @@ my $i = 0;
 while($i < $linesLen) {
   chomp $lines[$i];
   if($lines[$i] =~
-m/^\[HKEY_CURRENT_USER\\Software\\9bis.com\\KiTTY\\Sessions\\(.+)\]/)
+m/^\[HKEY_CURRENT_USER\\SOFTWARE\\9bis.com\\KiTTY\\Sessions\\(.+)\]/)
 {
     my $hostname = $1;
     $i++;
@@ -105,7 +105,7 @@ m/^\[HKEY_CURRENT_USER\\Software\\9bis.com\\KiTTY\\Sessions\\(.+)\]/)
     }
     close HOST;
   } elsif($lines[$i] =~
-m/\[HKEY_CURRENT_USER\\Software\\9bis.com\\KiTTY\\SshHostKeys\]/) {
+m/\[HKEY_CURRENT_USER\\SOFTWARE\\9bis.com\\KiTTY\\SshHostKeys\]/) {
     $i++;
     open SSH, ">$puttyPath/sshhostkeys" or die $!;
     while($i < $linesLen) {
