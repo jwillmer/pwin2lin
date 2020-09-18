@@ -61,7 +61,7 @@ if($#ARGV + 1) { # If any command line arguments are specified try to parse
 }
 
 # Open the file and convert it from UTF-16LE
-open(FILE, "<:encoding(UTF-16LE):crlf", $winRegFile) or die $!;
+open(FILE, "<:encoding(UTF-8):crlf", $winRegFile) or die $!;
 my @lines = <FILE>;
 close FILE;
 
