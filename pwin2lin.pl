@@ -77,6 +77,7 @@ while($i < $linesLen) {
 m/^\[HKEY_CURRENT_USER\\SOFTWARE\\9bis.com\\KiTTY\\Sessions\\(.+)\]/)
 {
     my $hostname = $1;
+    $hostname = do { (my $tmp = $hostname) =~ s/[^A-Za-z0-9]/_/g; $tmp };
     $i++;
     next if $hostname =~ m/^Default.+Settings$/; # Use Linux Defaults
     #print "$hostname\n";
